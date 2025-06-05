@@ -1,0 +1,24 @@
+{
+    "name": "template-agent-mcp",
+    "version": "1.0.0",
+    "description": "Template MCP server for single agent deployment",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc && npm run copy-prompt",
+        "copy-prompt": "node -e \"require('fs').copyFileSync('agent_prompt.txt', 'dist/agent_prompt.txt')\"",
+        "start": "node dist/index.js",
+        "dev": "tsc --watch",
+        "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\""
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^0.6.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "typescript": "^5.0.0"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
